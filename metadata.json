@@ -1,0 +1,6 @@
+{
+  "name": "RWA Tokenization Banking Platform",
+  "description": "Hệ thống Mô phỏng Token hóa Tài sản Thực (RWA) cho Ngân hàng & Tài chính: eKYC, Mint/Redeem, Fireblocks Custody, Stellar Smart Contracts, Trading & Đối soát On-chain/Off-chain.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

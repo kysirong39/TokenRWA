@@ -406,6 +406,110 @@ pub fn mint_rwa(e: Env, to: Address, amount: i128) {
           </div>
         </div>
       </div>
+
+      {/* NEW SECTION: Integration Standards & Interoperability Protocols */}
+      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded border border-amber-500/20">
+              System Integration & Bridge Standards
+            </span>
+            <h3 className="text-base font-bold text-white mt-1 flex items-center gap-2">
+              <ArrowRightLeft className="w-5 h-5 text-amber-400" />
+              Tiêu Chuẩn Tích Hợp Hệ Thống (On-chain, Off-chain & Oracle Bridges)
+            </h3>
+          </div>
+          <span className="text-xs text-slate-400 font-mono bg-slate-950 px-3 py-1 rounded-lg border border-slate-800">
+            ISO 20022 + REST/mTLS + SEP-24
+          </span>
+        </div>
+
+        <p className="text-xs text-slate-300 leading-relaxed">
+          Giao thức quy định tiêu chuẩn kết nối dữ liệu giữa hệ thống Ngân hàng lõi (Off-chain Core Banking), Nền tảng Lưu ký (Fireblocks Vault), Oracle Định giá (Chainlink PoR) và Mạng lưới Blockchain Stellar Soroban (On-chain).
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Subsection 1: Off-chain <-> On-chain Integration Standards */}
+          <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
+            <div className="flex items-center gap-2 border-b border-slate-800 pb-2 text-emerald-400 font-bold text-xs uppercase tracking-wider">
+              <Zap className="w-4 h-4" />
+              1. Tích Hợp On-chain &lt;&ndash;&gt; Off-chain (Web2 Banking & Web3)
+            </div>
+
+            <div className="space-y-3 text-xs">
+              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 space-y-1">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-white">mTLS & RESTful Open API Bridge</span>
+                  <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded">Security RFC-8446</span>
+                </div>
+                <p className="text-slate-400 text-[11px] leading-relaxed">
+                  Xác thực 2 chiều bằng chứng chỉ số RSA 4096-bit giữa Gateway Ngân hàng và Middleware. Mọi request chuyển tiếp lệnh Mint/Burn đều được mã hóa AES-256.
+                </p>
+              </div>
+
+              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 space-y-1">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-white">Oracle Bridge & Proof-of-Reserve (PoR)</span>
+                  <span className="text-[11px] font-mono text-amber-400 bg-amber-950 px-2 py-0.5 rounded">Chainlink / Pyth</span>
+                </div>
+                <p className="text-slate-400 text-[11px] leading-relaxed">
+                  Cập nhật định giá tài sản thực (NAV) và kiểm tra số dư Tài khoản Escrow phong tỏa 24/7. Tự động đẩy dữ liệu Proof of Reserve lên Soroban State mỗi 5 phút.
+                </p>
+              </div>
+
+              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 space-y-1">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-white">ISO 20022 Messaging Gateway</span>
+                  <span className="text-[11px] font-mono text-sky-400 bg-sky-950 px-2 py-0.5 rounded">camt.053 / pacs.008</span>
+                </div>
+                <p className="text-slate-400 text-[11px] leading-relaxed">
+                  Chuyển đổi tín hiệu chuyển tiền fiat ngân hàng thành thông điệp chuẩn hóa XML/JSON để trigger hợp đồng thông minh thực thi mint_bond() tự động.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Subsection 2: On-chain <-> On-chain Integration Standards */}
+          <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
+            <div className="flex items-center gap-2 border-b border-slate-800 pb-2 text-purple-400 font-bold text-xs uppercase tracking-wider">
+              <Globe className="w-4 h-4" />
+              2. Tích Hợp On-chain &lt;&ndash;&gt; On-chain (Cross-chain & Interoperability)
+            </div>
+
+            <div className="space-y-3 text-xs">
+              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 space-y-1">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-white">Stellar Ecosystem Proposal (SEP-24 & SEP-30)</span>
+                  <span className="text-[10px] font-mono text-purple-400 bg-purple-950 px-2 py-0.5 rounded">Anchor Protocol</span>
+                </div>
+                <p className="text-slate-400 text-[11px] leading-relaxed">
+                  Tiêu chuẩn tương tác Nạp/Rút Fiat và quản lý Phôi khóa dự phòng (Recovery Key Shards) tương thích hoàn toàn với hệ sinh thái Ví Stellar toàn cầu.
+                </p>
+              </div>
+
+              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 space-y-1">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-white">Cross-Chain Liquidity Bridge Protocol</span>
+                  <span className="text-[11px] font-mono text-indigo-400 bg-indigo-950 px-2 py-0.5 rounded">Soroban CCIP Bridge</span>
+                </div>
+                <p className="text-slate-400 text-[11px] leading-relaxed">
+                  Cho phép dịch chuyển thanh khoản Trái phiếu Token hóa giữa Stellar Soroban và các mạng EVM L2 (Arbitrum, Polygon) dành cho Nhà đầu tư Quốc tế.
+                </p>
+              </div>
+
+              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 space-y-1">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-white">Soroban RPC WebSocket Event Stream</span>
+                  <span className="text-[11px] font-mono text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded">JSON-RPC 2.0</span>
+                </div>
+                <p className="text-slate-400 text-[11px] leading-relaxed">
+                  Cổng kết nối lắng nghe Sự kiện On-chain real-time (RWA_MINT, RECONCILE_ALERT) đẩy trực tiếp vào Core Banking Reconciliation Engine.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { Navbar } from './components/Navbar';
 import { ProblemOverview } from './components/ProblemOverview';
 import { ArchitectureTech } from './components/ArchitectureTech';
 import { WorkflowSimulator } from './components/WorkflowSimulator';
+import { SmartContractsModule } from './components/SmartContractsModule';
 import { ReconciliationModule } from './components/ReconciliationModule';
 import { AiRwaAdvisor } from './components/AiRwaAdvisor';
 
@@ -32,6 +33,8 @@ export default function App() {
             onUpdateAssets={setAssets}
           />
         )}
+
+        {activeTab === 'smart_contracts' && <SmartContractsModule />}
 
         {activeTab === 'reconciliation_ledger' && <ReconciliationModule assets={assets} />}
 

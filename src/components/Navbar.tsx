@@ -10,7 +10,8 @@ import {
   Key,
   Database,
   Building2,
-  Activity
+  Activity,
+  FileCode
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -39,14 +40,20 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
       icon: Workflow,
     },
     {
+      id: 'smart_contracts' as NavigationTab,
+      label: '4. Smart Contracts',
+      subLabel: 'Soroban Wasm & Rust',
+      icon: FileCode,
+    },
+    {
       id: 'reconciliation_ledger' as NavigationTab,
-      label: '4. Quy trình Đối soát',
+      label: '5. Quy trình Đối soát',
       subLabel: 'On-chain vs Off-chain',
       icon: Scale,
     },
     {
       id: 'ai_advisor' as NavigationTab,
-      label: '5. AI RWA Advisor',
+      label: '6. AI RWA Advisor',
       subLabel: 'Phân tích & Sandbox AI',
       icon: Sparkles,
     },

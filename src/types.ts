@@ -2,6 +2,7 @@ export type NavigationTab =
   | 'problem_model'
   | 'architecture_tech'
   | 'workflow_simulator'
+  | 'smart_contracts'
   | 'reconciliation_ledger'
   | 'ai_advisor';
 

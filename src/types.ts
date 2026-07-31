@@ -4,7 +4,8 @@ export type NavigationTab =
   | 'workflow_simulator'
   | 'smart_contracts'
   | 'reconciliation_ledger'
-  | 'ai_advisor';
+  | 'ai_advisor'
+  | 'links_library';
 
 export type AssetType = 'corporate_bond' | 'real_estate' | 'carbon_credit' | 'gold_vault';
 

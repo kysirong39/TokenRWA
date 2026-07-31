@@ -11,7 +11,8 @@ import {
   Database,
   Building2,
   Activity,
-  FileCode
+  FileCode,
+  BookOpen
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -56,6 +57,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
       label: '6. AI RWA Advisor',
       subLabel: 'Phân tích & Sandbox AI',
       icon: Sparkles,
+    },
+    {
+      id: 'links_library' as NavigationTab,
+      label: '7. Thư viện liên kết',
+      subLabel: 'Tài liệu & Resource Index',
+      icon: BookOpen,
     },
   ];
 

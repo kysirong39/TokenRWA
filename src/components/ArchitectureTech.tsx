@@ -693,143 +693,22 @@ pub fn mint_rwa(e: Env, to: Address, amount: i128) {
         </div>
       </div>
 
-      {/* NEW SECTION: Official Resources Directory & External Reference Links */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
-          <div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-sky-400 bg-sky-500/10 px-2.5 py-0.5 rounded border border-sky-500/20">
-              Official Documentation & Resource Index
+      {/* SECTION: Reference to Dedicated Tab 7 Links Library */}
+      <div className="bg-slate-900 border border-sky-500/30 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="space-y-1 text-left">
+          <div className="flex items-center gap-2">
+            <span className="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-sky-500/20 text-sky-300 border border-sky-500/30">
+              Official Resource Index
             </span>
-            <h3 className="text-base font-bold text-white mt-1 flex items-center gap-2">
-              <Globe className="w-5 h-5 text-sky-400" />
-              Chỉ Mục Liên Kết & Nguồn Truy Cấp Chính Thức (Official External Links)
-            </h3>
+            <span className="text-xs text-slate-400">13 Verified Resources</span>
           </div>
-          <span className="text-xs text-slate-400 font-mono bg-slate-950 px-3 py-1 rounded-lg border border-slate-800">
-            Verified External Gateways
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-          {/* Link 1: Stellar Soroban Docs */}
-          <a
-            href="https://stellar.org/soroban"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-sky-500/50 rounded-xl space-y-2 group transition-all"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-white group-hover:text-sky-400 transition-colors">Stellar Soroban</span>
-              <ExternalLink className="w-4 h-4 text-sky-400 group-hover:translate-x-0.5 transition-transform" />
-            </div>
-            <p className="text-[11px] text-slate-400">Tài liệu chính thức về Hợp đồng thông minh Soroban Wasm trên mạng lưới Stellar.</p>
-            <span className="text-[10px] text-sky-400 font-mono block pt-1 border-t border-slate-900">https://stellar.org/soroban</span>
-          </a>
-
-          {/* Link 2: Stellar Laboratory */}
-          <a
-            href="https://laboratory.stellar.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-purple-500/50 rounded-xl space-y-2 group transition-all"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-white group-hover:text-purple-400 transition-colors">Stellar Laboratory</span>
-              <ExternalLink className="w-4 h-4 text-purple-400 group-hover:translate-x-0.5 transition-transform" />
-            </div>
-            <p className="text-[11px] text-slate-400">Cổng công cụ tương tác RPC, kiểm tra giao dịch và Testnet Faucet cho Developer.</p>
-            <span className="text-[10px] text-purple-400 font-mono block pt-1 border-t border-slate-900">https://laboratory.stellar.org/</span>
-          </a>
-
-          {/* Link 3: Fireblocks Enterprise */}
-          <a
-            href="https://www.fireblocks.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-indigo-500/50 rounded-xl space-y-2 group transition-all"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-white group-hover:text-indigo-400 transition-colors">Fireblocks Custody</span>
-              <ExternalLink className="w-4 h-4 text-indigo-400 group-hover:translate-x-0.5 transition-transform" />
-            </div>
-            <p className="text-[11px] text-slate-400">Giải pháp lưu ký MPC và Policy Engine cấp tài chính cho tổ chức ngân hàng.</p>
-            <span className="text-[10px] text-indigo-400 font-mono block pt-1 border-t border-slate-900">https://www.fireblocks.com/</span>
-          </a>
-
-          {/* Link 4: Chainlink PoR */}
-          <a
-            href="https://chain.link/proof-of-reserve"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/50 rounded-xl space-y-2 group transition-all"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-white group-hover:text-amber-400 transition-colors">Chainlink PoR</span>
-              <ExternalLink className="w-4 h-4 text-amber-400 group-hover:translate-x-0.5 transition-transform" />
-            </div>
-            <p className="text-[11px] text-slate-400">Mạng lưới Oracle xác minh minh bạch tài sản ký quỹ Off-chain (Proof of Reserve).</p>
-            <span className="text-[10px] text-amber-400 font-mono block pt-1 border-t border-slate-900">https://chain.link/proof-of-reserve</span>
-          </a>
-
-          {/* Link 5: ISO 20022 */}
-          <a
-            href="https://www.iso20022.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-emerald-500/50 rounded-xl space-y-2 group transition-all"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-white group-hover:text-emerald-400 transition-colors">ISO 20022 Standard</span>
-              <ExternalLink className="w-4 h-4 text-emerald-400 group-hover:translate-x-0.5 transition-transform" />
-            </div>
-            <p className="text-[11px] text-slate-400">Chuẩn mực tin nhắn tài chính quốc tế cho thanh toán & đối soát ngân hàng.</p>
-            <span className="text-[10px] text-emerald-400 font-mono block pt-1 border-t border-slate-900">https://www.iso20022.org/</span>
-          </a>
-
-          {/* Link 6: Stellar Ecosystem Proposals */}
-          <a
-            href="https://github.com/stellar/stellar-protocol/tree/master/ecosystem"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-blue-500/50 rounded-xl space-y-2 group transition-all"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-white group-hover:text-blue-400 transition-colors">Stellar SEPs (SEP-24/30)</span>
-              <ExternalLink className="w-4 h-4 text-blue-400 group-hover:translate-x-0.5 transition-transform" />
-            </div>
-            <p className="text-[11px] text-slate-400">Bộ tiêu chuẩn tích hợp Anchor Fiat, nạp rút và khôi phục tài khoản Stellar.</p>
-            <span className="text-[10px] text-blue-400 font-mono block pt-1 border-t border-slate-900">github.com/stellar/stellar-protocol</span>
-          </a>
-
-          {/* Link 7: SBV Portal */}
-          <a
-            href="https://sbv.gov.vn/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-rose-500/50 rounded-xl space-y-2 group transition-all"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-white group-hover:text-rose-400 transition-colors">NHNN Việt Nam (SBV)</span>
-              <ExternalLink className="w-4 h-4 text-rose-400 group-hover:translate-x-0.5 transition-transform" />
-            </div>
-            <p className="text-[11px] text-slate-400">Cổng thông tin Ngân hàng Nhà nước Việt Nam về cơ chế Sandbox thử nghiệm Fintech.</p>
-            <span className="text-[10px] text-rose-400 font-mono block pt-1 border-t border-slate-900">https://sbv.gov.vn/</span>
-          </a>
-
-          {/* Link 8: VNeID Portal */}
-          <a
-            href="https://vneid.gov.vn/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-teal-500/50 rounded-xl space-y-2 group transition-all"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-white group-hover:text-teal-400 transition-colors">VNeID Định Danh Số</span>
-              <ExternalLink className="w-4 h-4 text-teal-400 group-hover:translate-x-0.5 transition-transform" />
-            </div>
-            <p className="text-[11px] text-slate-400">Hệ thống định danh điện tử quốc gia ứng dụng xác thực eKYC cho nhà đầu tư.</p>
-            <span className="text-[10px] text-teal-400 font-mono block pt-1 border-t border-slate-900">https://vneid.gov.vn/</span>
-          </a>
+          <h3 className="text-sm font-bold text-white flex items-center gap-2">
+            <Globe className="w-4 h-4 text-sky-400" />
+            Thư Viện Liên Kết & Nguồn Truy Cấp Tài Liệu Chính Thức
+          </h3>
+          <p className="text-xs text-slate-300 leading-relaxed">
+            Toàn bộ các liên kết tài liệu Stellar Soroban, Fireblocks Custody, Chainlink PoR, ISO 20022 và Cổng thông tin Ngân hàng Nhà nước Việt Nam đã được chuyển sang tab menu <strong>7. Thư viện liên kết</strong>.
+          </p>
         </div>
       </div>
     </div>

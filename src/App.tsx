@@ -8,6 +8,7 @@ import { WorkflowSimulator } from './components/WorkflowSimulator';
 import { SmartContractsModule } from './components/SmartContractsModule';
 import { ReconciliationModule } from './components/ReconciliationModule';
 import { AiRwaAdvisor } from './components/AiRwaAdvisor';
+import { LinksLibraryModule } from './components/LinksLibraryModule';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<NavigationTab>('problem_model');
@@ -39,6 +40,8 @@ export default function App() {
         {activeTab === 'reconciliation_ledger' && <ReconciliationModule assets={assets} />}
 
         {activeTab === 'ai_advisor' && <AiRwaAdvisor />}
+
+        {activeTab === 'links_library' && <LinksLibraryModule />}
       </main>
 
       {/* Footer */}

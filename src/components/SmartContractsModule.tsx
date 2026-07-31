@@ -557,6 +557,38 @@ export const SmartContractsModule: React.FC = () => {
             <p className="text-xs text-slate-300 mt-1 max-w-3xl leading-relaxed">
               Tổng hợp toàn bộ 5 Hợp đồng thông minh Soroban (Rust Wasm) vận hành giao thức Token hóa Trái phiếu Ngân hàng: Từ Token Core, eKYC Whitelist Registry đến Cổng Ký quỹ Fireblocks MPC & Circuit Breaker.
             </p>
+
+            {/* External Links Buttons */}
+            <div className="flex flex-wrap items-center gap-2 mt-3 pt-3 border-t border-sky-800/40 text-xs">
+              <span className="text-slate-400 font-medium">Nguồn tài nguyên chính thức:</span>
+              <a
+                href="https://stellar.org/soroban"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2.5 py-1 bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 rounded-lg border border-sky-500/30 flex items-center gap-1 font-mono hover:underline transition-all"
+              >
+                <span>Stellar Soroban Docs</span>
+                <ExternalLink className="w-3 h-3 text-sky-400" />
+              </a>
+              <a
+                href="https://laboratory.stellar.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2.5 py-1 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 rounded-lg border border-purple-500/30 flex items-center gap-1 font-mono hover:underline transition-all"
+              >
+                <span>Stellar Laboratory Testnet</span>
+                <ExternalLink className="w-3 h-3 text-purple-400" />
+              </a>
+              <a
+                href="https://www.fireblocks.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2.5 py-1 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 rounded-lg border border-indigo-500/30 flex items-center gap-1 font-mono hover:underline transition-all"
+              >
+                <span>Fireblocks Custody</span>
+                <ExternalLink className="w-3 h-3 text-indigo-400" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

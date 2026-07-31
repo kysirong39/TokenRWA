@@ -11,7 +11,8 @@ import {
   Terminal,
   ShieldCheck,
   Zap,
-  Key
+  Key,
+  ExternalLink
 } from 'lucide-react';
 
 export const ArchitectureTech: React.FC = () => {
@@ -407,6 +408,187 @@ pub fn mint_rwa(e: Env, to: Address, amount: i128) {
         </div>
       </div>
 
+      {/* NEW SECTION: Fireblocks MPC Custody & Policy Engine Detailed Visual Model */}
+      <div className="bg-slate-900 border border-indigo-500/30 rounded-2xl p-6 space-y-6 shadow-xl shadow-indigo-950/20">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded border border-indigo-500/20">
+              3. Fireblocks Custody & Policy Engine
+            </span>
+            <h3 className="text-base font-bold text-white mt-1 flex items-center gap-2">
+              <Lock className="w-5 h-5 text-indigo-400" />
+              Mô Hình Chi Tiết Cơ Chế Chữ Ký Ngưỡng MPC (2-of-3 Threshold Cryptography)
+            </h3>
+          </div>
+          <span className="text-xs text-indigo-300 font-mono bg-indigo-950 px-3 py-1 rounded-lg border border-indigo-800">
+            MPC-CMP Protocol / Ed25519
+          </span>
+        </div>
+
+        <p className="text-xs text-slate-300 leading-relaxed">
+          Giải pháp lưu ký cấp Ngân hàng thương mại sử dụng công nghệ <strong>Multi-Party Computation (MPC)</strong> kết hợp <strong>Chính sách Bảo mật Tự động (Policy Engine)</strong>. Khóa bí mật không bao giờ tồn tại trọn vẹn ở bất kỳ đâu; thay vào đó được chia thành 3 mảnh khóa (Key Shares) độc lập với cơ chế đồng thuận 2/3.
+        </p>
+
+        {/* MPC 3 Key Shares Visual Schema */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Key Share 1 */}
+          <div className="bg-slate-950 border border-emerald-500/40 rounded-xl p-4 space-y-3 relative overflow-hidden group hover:border-emerald-400 transition-all">
+            <div className="absolute top-0 right-0 bg-emerald-500/20 text-emerald-400 text-[10px] font-bold font-mono px-2 py-0.5 rounded-bl">
+              SHARE 1 / 3
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="p-2 bg-emerald-950 text-emerald-400 rounded-lg border border-emerald-800">
+                <Key className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-white">Mảnh Khóa 1: Issuer Bank Node</h4>
+                <span className="text-[10px] text-slate-400">DMZ Ngân Hàng Phát Hành</span>
+              </div>
+            </div>
+            <p className="text-[11px] text-slate-300 leading-relaxed">
+              Đặt tại hạ tầng On-premise / Private Cloud của Ngân hàng. Tự động kích hoạt mảnh chữ ký 1 khi Trưởng phòng Nguồn vốn phê duyệt lệnh trên Core Banking.
+            </p>
+            <div className="flex items-center justify-between pt-2 border-t border-slate-900 text-[10px] font-mono text-emerald-400">
+              <span>Trạng thái: Active</span>
+              <span className="bg-emerald-950 px-1.5 py-0.5 rounded border border-emerald-800">Local Hardware</span>
+            </div>
+          </div>
+
+          {/* Key Share 2 */}
+          <div className="bg-slate-950 border border-indigo-500/40 rounded-xl p-4 space-y-3 relative overflow-hidden group hover:border-indigo-400 transition-all">
+            <div className="absolute top-0 right-0 bg-indigo-500/20 text-indigo-400 text-[10px] font-bold font-mono px-2 py-0.5 rounded-bl">
+              SHARE 2 / 3
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="p-2 bg-indigo-950 text-indigo-400 rounded-lg border border-indigo-800">
+                <ShieldCheck className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-white">Mảnh Khóa 2: Policy Engine Cloud</h4>
+                <span className="text-[10px] text-slate-400">Fireblocks Co-signer Server</span>
+              </div>
+            </div>
+            <p className="text-[11px] text-slate-300 leading-relaxed">
+              Đặt tại Đám mây Bảo mật Fireblocks. Tự động kiểm tra Quy tắc Tuân thủ (Hạn mức phát hành, eKYC Whitelist, AML Screening) trước khi ký mảnh 2.
+            </p>
+            <div className="flex items-center justify-between pt-2 border-t border-slate-900 text-[10px] font-mono text-indigo-400">
+              <span>Trạng thái: Auto-signing</span>
+              <span className="bg-indigo-950 px-1.5 py-0.5 rounded border border-indigo-800">SGX Enclave</span>
+            </div>
+          </div>
+
+          {/* Key Share 3 */}
+          <div className="bg-slate-950 border border-amber-500/40 rounded-xl p-4 space-y-3 relative overflow-hidden group hover:border-amber-400 transition-all">
+            <div className="absolute top-0 right-0 bg-amber-500/20 text-amber-400 text-[10px] font-bold font-mono px-2 py-0.5 rounded-bl">
+              SHARE 3 / 3
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="p-2 bg-amber-950 text-amber-400 rounded-lg border border-amber-800">
+                <Server className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-white">Mảnh Khóa 3: Cold Recovery Vault</h4>
+                <span className="text-[10px] text-slate-400">Trustee / Disaster Recovery</span>
+              </div>
+            </div>
+            <p className="text-[11px] text-slate-300 leading-relaxed">
+              Mảnh khóa dự phòng lưu trữ cách ly ngoại tuyến (Air-gapped) tại Tổ chức Giám sát Lưu ký độc lập. Chỉ sử dụng khi khôi phục thảm họa hoặc sự cố hệ thống.
+            </p>
+            <div className="flex items-center justify-between pt-2 border-t border-slate-900 text-[10px] font-mono text-amber-400">
+              <span>Trạng thái: Standby (Cold)</span>
+              <span className="bg-amber-950 px-1.5 py-0.5 rounded border border-amber-800">Air-Gapped HSM</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Step-by-Step Interactive Workflow Diagram */}
+        <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <Zap className="w-4 h-4 text-amber-400" />
+              Luồng Ký Số Phân Tán MPC & Thực Thi Giao Dịch On-chain
+            </h4>
+            <span className="text-[10px] text-slate-400 font-mono">
+              Thời gian xử lý: &lt; 100ms
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {/* Step 1 */}
+            <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 space-y-2 relative">
+              <div className="flex items-center justify-between text-[11px] font-bold text-emerald-400 font-mono">
+                <span>BƯỚC 1</span>
+                <span className="bg-emerald-950 px-1.5 py-0.5 rounded text-[10px]">API Request</span>
+              </div>
+              <h5 className="text-xs font-bold text-white">Khởi Tạo Lệnh Mint/Transfer</h5>
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                Core Banking phát lệnh qua REST API mã hóa mTLS sang Fireblocks Vault Middleware kèm tham số giao dịch.
+              </p>
+            </div>
+
+            {/* Step 2 */}
+            <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 space-y-2 relative">
+              <div className="flex items-center justify-between text-[11px] font-bold text-indigo-400 font-mono">
+                <span>BƯỚC 2</span>
+                <span className="bg-indigo-950 px-1.5 py-0.5 rounded text-[10px]">Policy Engine</span>
+              </div>
+              <h5 className="text-xs font-bold text-white">Sàng Lọc Quy Tắc Tuân Thủ</h5>
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                Fireblocks tự động quét AML, đối chiếu hạn mức giao dịch và xác minh chữ ký phê duyệt từ ngân hàng.
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 space-y-2 relative">
+              <div className="flex items-center justify-between text-[11px] font-bold text-purple-400 font-mono">
+                <span>BƯỚC 3</span>
+                <span className="bg-purple-950 px-1.5 py-0.5 rounded text-[10px]">MPC 2/3 Signing</span>
+              </div>
+              <h5 className="text-xs font-bold text-white">Ký Mảnh Độc Lập</h5>
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                Share 1 và Share 2 tính toán chữ ký bộ phận (&sigma;1, &sigma;2). Khóa riêng tuyệt đối không ghép lại ở bất kỳ thời điểm nào.
+              </p>
+            </div>
+
+            {/* Step 4 */}
+            <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 space-y-2 relative">
+              <div className="flex items-center justify-between text-[11px] font-bold text-sky-400 font-mono">
+                <span>BƯỚC 4</span>
+                <span className="bg-sky-950 px-1.5 py-0.5 rounded text-[10px]">On-chain Broadcast</span>
+              </div>
+              <h5 className="text-xs font-bold text-white">Gộp Chữ Ký Chuẩn Ed25519</h5>
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                Kết hợp đại số ra chữ ký hợp lệ duy nhất, gửi lên Stellar Soroban RPC để Smart Contract xác thực.
+              </p>
+            </div>
+          </div>
+
+          {/* Mathematical & Security Comparison Grid */}
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-800 text-xs">
+            <div className="bg-slate-900 p-3 rounded-lg border border-slate-800 space-y-1">
+              <span className="font-bold text-emerald-400">An Toàn Tuyệt Đối (Zero Single Point)</span>
+              <p className="text-slate-400 text-[11px] leading-relaxed">
+                Hacker tấn công chiếm được 1 server vẫn không thể có private key hay thực thi chuyển tiền trái phép.
+              </p>
+            </div>
+
+            <div className="bg-slate-900 p-3 rounded-lg border border-slate-800 space-y-1">
+              <span className="font-bold text-indigo-400">Tối Ưu Phí On-Chain (Standard Signature)</span>
+              <p className="text-slate-400 text-[11px] leading-relaxed">
+                Khác với Smart Contract Multisig tốn nhiều Gas, MPC tạo ra 1 chữ ký đơn chuẩn Ed25519 giúp phí giao dịch Stellar giữ nguyên mức $0.00001.
+              </p>
+            </div>
+
+            <div className="bg-slate-900 p-3 rounded-lg border border-slate-800 space-y-1">
+              <span className="font-bold text-amber-400">Bảo Mật Cấu Trúc Quản Trị (Privacy)</span>
+              <p className="text-slate-400 text-[11px] leading-relaxed">
+                Không lộ danh tính người duyệt hay quy tắc quản trị nội bộ của ngân hàng lên sổ cái công khai Stellar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* NEW SECTION: Integration Standards & Interoperability Protocols */}
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
@@ -508,6 +690,146 @@ pub fn mint_rwa(e: Env, to: Address, amount: i128) {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* NEW SECTION: Official Resources Directory & External Reference Links */}
+      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-sky-400 bg-sky-500/10 px-2.5 py-0.5 rounded border border-sky-500/20">
+              Official Documentation & Resource Index
+            </span>
+            <h3 className="text-base font-bold text-white mt-1 flex items-center gap-2">
+              <Globe className="w-5 h-5 text-sky-400" />
+              Chỉ Mục Liên Kết & Nguồn Truy Cấp Chính Thức (Official External Links)
+            </h3>
+          </div>
+          <span className="text-xs text-slate-400 font-mono bg-slate-950 px-3 py-1 rounded-lg border border-slate-800">
+            Verified External Gateways
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          {/* Link 1: Stellar Soroban Docs */}
+          <a
+            href="https://stellar.org/soroban"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-sky-500/50 rounded-xl space-y-2 group transition-all"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-white group-hover:text-sky-400 transition-colors">Stellar Soroban</span>
+              <ExternalLink className="w-4 h-4 text-sky-400 group-hover:translate-x-0.5 transition-transform" />
+            </div>
+            <p className="text-[11px] text-slate-400">Tài liệu chính thức về Hợp đồng thông minh Soroban Wasm trên mạng lưới Stellar.</p>
+            <span className="text-[10px] text-sky-400 font-mono block pt-1 border-t border-slate-900">https://stellar.org/soroban</span>
+          </a>
+
+          {/* Link 2: Stellar Laboratory */}
+          <a
+            href="https://laboratory.stellar.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-purple-500/50 rounded-xl space-y-2 group transition-all"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-white group-hover:text-purple-400 transition-colors">Stellar Laboratory</span>
+              <ExternalLink className="w-4 h-4 text-purple-400 group-hover:translate-x-0.5 transition-transform" />
+            </div>
+            <p className="text-[11px] text-slate-400">Cổng công cụ tương tác RPC, kiểm tra giao dịch và Testnet Faucet cho Developer.</p>
+            <span className="text-[10px] text-purple-400 font-mono block pt-1 border-t border-slate-900">https://laboratory.stellar.org/</span>
+          </a>
+
+          {/* Link 3: Fireblocks Enterprise */}
+          <a
+            href="https://www.fireblocks.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-indigo-500/50 rounded-xl space-y-2 group transition-all"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-white group-hover:text-indigo-400 transition-colors">Fireblocks Custody</span>
+              <ExternalLink className="w-4 h-4 text-indigo-400 group-hover:translate-x-0.5 transition-transform" />
+            </div>
+            <p className="text-[11px] text-slate-400">Giải pháp lưu ký MPC và Policy Engine cấp tài chính cho tổ chức ngân hàng.</p>
+            <span className="text-[10px] text-indigo-400 font-mono block pt-1 border-t border-slate-900">https://www.fireblocks.com/</span>
+          </a>
+
+          {/* Link 4: Chainlink PoR */}
+          <a
+            href="https://chain.link/proof-of-reserve"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/50 rounded-xl space-y-2 group transition-all"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-white group-hover:text-amber-400 transition-colors">Chainlink PoR</span>
+              <ExternalLink className="w-4 h-4 text-amber-400 group-hover:translate-x-0.5 transition-transform" />
+            </div>
+            <p className="text-[11px] text-slate-400">Mạng lưới Oracle xác minh minh bạch tài sản ký quỹ Off-chain (Proof of Reserve).</p>
+            <span className="text-[10px] text-amber-400 font-mono block pt-1 border-t border-slate-900">https://chain.link/proof-of-reserve</span>
+          </a>
+
+          {/* Link 5: ISO 20022 */}
+          <a
+            href="https://www.iso20022.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-emerald-500/50 rounded-xl space-y-2 group transition-all"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-white group-hover:text-emerald-400 transition-colors">ISO 20022 Standard</span>
+              <ExternalLink className="w-4 h-4 text-emerald-400 group-hover:translate-x-0.5 transition-transform" />
+            </div>
+            <p className="text-[11px] text-slate-400">Chuẩn mực tin nhắn tài chính quốc tế cho thanh toán & đối soát ngân hàng.</p>
+            <span className="text-[10px] text-emerald-400 font-mono block pt-1 border-t border-slate-900">https://www.iso20022.org/</span>
+          </a>
+
+          {/* Link 6: Stellar Ecosystem Proposals */}
+          <a
+            href="https://github.com/stellar/stellar-protocol/tree/master/ecosystem"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-blue-500/50 rounded-xl space-y-2 group transition-all"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-white group-hover:text-blue-400 transition-colors">Stellar SEPs (SEP-24/30)</span>
+              <ExternalLink className="w-4 h-4 text-blue-400 group-hover:translate-x-0.5 transition-transform" />
+            </div>
+            <p className="text-[11px] text-slate-400">Bộ tiêu chuẩn tích hợp Anchor Fiat, nạp rút và khôi phục tài khoản Stellar.</p>
+            <span className="text-[10px] text-blue-400 font-mono block pt-1 border-t border-slate-900">github.com/stellar/stellar-protocol</span>
+          </a>
+
+          {/* Link 7: SBV Portal */}
+          <a
+            href="https://sbv.gov.vn/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-rose-500/50 rounded-xl space-y-2 group transition-all"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-white group-hover:text-rose-400 transition-colors">NHNN Việt Nam (SBV)</span>
+              <ExternalLink className="w-4 h-4 text-rose-400 group-hover:translate-x-0.5 transition-transform" />
+            </div>
+            <p className="text-[11px] text-slate-400">Cổng thông tin Ngân hàng Nhà nước Việt Nam về cơ chế Sandbox thử nghiệm Fintech.</p>
+            <span className="text-[10px] text-rose-400 font-mono block pt-1 border-t border-slate-900">https://sbv.gov.vn/</span>
+          </a>
+
+          {/* Link 8: VNeID Portal */}
+          <a
+            href="https://vneid.gov.vn/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-4 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-teal-500/50 rounded-xl space-y-2 group transition-all"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-white group-hover:text-teal-400 transition-colors">VNeID Định Danh Số</span>
+              <ExternalLink className="w-4 h-4 text-teal-400 group-hover:translate-x-0.5 transition-transform" />
+            </div>
+            <p className="text-[11px] text-slate-400">Hệ thống định danh điện tử quốc gia ứng dụng xác thực eKYC cho nhà đầu tư.</p>
+            <span className="text-[10px] text-teal-400 font-mono block pt-1 border-t border-slate-900">https://vneid.gov.vn/</span>
+          </a>
         </div>
       </div>
     </div>
